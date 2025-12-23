@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影库 - 我的电影</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">我的电影</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="movie-list.html" class="active">电影库</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-container">
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="搜索电影..." autocomplete="off">
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </div>
+                
+                <a href="index.html#new-releases">新片速递</a>
+                <a href="index.html#top">排行榜</a>
+                <div class="auth-buttons">
+                    <!-- 用户管理JS会自动填充 -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="movie-list-header">
+            <h1>电影库</h1>
+            <p>探索数千部精彩电影</p>
+            <div class="filter-summary" id="filterSummary" style="display: none;">
+                <span class="summary-text">当前筛选：</span>
+                <div class="summary-tags" id="summaryTags"></div>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid" title="网格视图">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" data-view="list" title="列表视图">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 筛选栏 -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label for="genreFilter">类型</label>
+                <select id="genreFilter">
+                    <option value="">全部类型</option>
+                    <option value="科幻">科幻</option>
+                    <option value="动作">动作</option>
+                    <option value="喜剧">喜剧</option>
+                    <option value="剧情">剧情</option>
+                    <option value="悬疑">悬疑</option>
+                    <option value="恐怖">恐怖</option>
+                    <option value="爱情">爱情</option>
+                    <option value="动画">动画</option>
+                    <option value="冒险">冒险</option>
+                    <option value="犯罪">犯罪</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="yearFilter">年份</label>
+                <select id="yearFilter">
+                    <option value="">全部年份</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="ratingFilter">评分</label>
+                <select id="ratingFilter">
+                    <option value="">全部评分</option>
+                    <option value="9">9.0分以上</option>
+                    <option value="8">8.0分以上</option>
+                    <option value="7">7.0分以上</option>
+                    <option value="6">6.0分以上</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="sortFilter">排序</label>
+                <select id="sortFilter">
+                    <option value="rating_desc">评分从高到低</option>
+                    <option value="rating_asc">评分从低到高</option>
+                    <option value="year_desc">年份从新到旧</option>
+                    <option value="year_asc">年份从旧到新</option>
+                    <option value="title_asc">名称A-Z</option>
+                    <option value="title_desc">名称Z-A</option>
+                </select>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn btn-primary" id="applyFilter">筛选</button>
+                <button class="btn btn-outline" id="resetFilter">重置</button>
+            </div>
+        </div>
+
+        <!-- 电影列表 -->
+        <div class="movie-grid" id="movieList">
+            <!-- 电影卡片由JS动态生成 -->
+        </div>
+        
+        <!-- 加载状态 -->
+        <div id="loadingMovies" class="loading-state" style="display: none;">
+            <i class="fas fa-spinner fa-spin fa-3x" style="color: #ff4757;"></i>
+            <p>加载中...</p>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination" id="pagination">
+            <button class="page-btn prev disabled"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- 没有结果的提示 -->
+        <div id="noMovies" class="no-results" style="display: none;">
+            <i class="fas fa-film"></i>
+            <h3>没有找到电影</h3>
+            <p>尝试调整筛选条件，或浏览我们的<a href="index.html">首页推荐</a></p>
+        </div>
+    </main>
+
+    
+
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/movie-list.js"></script>
+</body>
+</html>

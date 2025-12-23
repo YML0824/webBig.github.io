@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 我的电影</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">我的电影</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="movie-list.html">电影库</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-container">
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="搜索电影..." autocomplete="off">
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </div>
+                
+                <a href="index.html#new-releases">新片速递</a>
+                <a href="index.html#top">排行榜</a>
+                <div class="auth-buttons">
+                    <!-- 用户管理JS会自动填充 -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- 搜索结果头部 -->
+        <div class="search-results-header">
+            <h2>搜索结果</h2>
+            <p class="search-count">找到 <span id="resultCount">0</span> 个关于 "<span id="searchKeyword" class="search-keyword"></span>" 的结果</p>
+            
+            <!-- 搜索结果筛选 -->
+            <div class="search-filter">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="movie">电影</button>
+                    <button class="filter-btn" data-filter="director">导演</button>
+                    <button class="filter-btn" data-filter="genre">类型</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 搜索结果内容 -->
+        <div id="searchResults" class="movie-grid">
+            <!-- 搜索结果将由JS动态生成 -->
+        </div>
+
+        <!-- 相关搜索 -->
+        <div class="related-searches" id="relatedSearches">
+            <h3>相关搜索</h3>
+            <div class="related-tags">
+                <!-- 相关搜索标签会动态生成 -->
+            </div>
+        </div>
+
+        <!-- 没有结果时的提示 -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <i class="fas fa-film"></i>
+            <h3>没有找到相关电影</h3>
+            <p>建议：</p>
+            <ul>
+                <li>检查输入的关键词是否正确</li>
+                <li>尝试其他关键词搜索</li>
+                <li>浏览我们的<a href="movie-list.html">电影库</a></li>
+            </ul>
+        </div>
+
+        <!-- 热门搜索推荐 -->
+        <div class="popular-searches">
+            <h3>热门搜索</h3>
+            <div class="popular-tags">
+                <a href="search-results.html?q=科幻" class="tag">科幻</a>
+                <a href="search-results.html?q=喜剧" class="tag">喜剧</a>
+                <a href="search-results.html?q=动作" class="tag">动作</a>
+                <a href="search-results.html?q=爱情" class="tag">爱情</a>
+                <a href="search-results.html?q=悬疑" class="tag">悬疑</a>
+                <a href="search-results.html?q=动画" class="tag">动画</a>
+                <a href="search-results.html?q=2023" class="tag">2023</a>
+                <a href="search-results.html?q=张艺谋" class="tag">张艺谋</a>
+            </div>
+        </div>
+    </main>
+
+    
+
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/search-results.js"></script>
+</body>
+</html>

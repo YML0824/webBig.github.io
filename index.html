@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的电影 - 首页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">电影</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">首页</a>
+                <a href="movie-list.html">电影库</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-container">
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="搜索电影..." autocomplete="off">
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </div>
+                
+                <a href="#new">新片速递</a>
+                <a href="#top">排行榜</a>
+                <div class="auth-buttons">
+                    <!-- 用户管理JS会自动填充 -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container">
+        <!-- 轮播图 -->
+        <section class="hero">
+            <div class="hero-slider">
+                <div class="slide active" style="background-image: url('https://picsum.photos/1200/500?random=1');">
+                    <div class="slide-content">
+                        <h2>流浪地球2</h2>
+                        <p>太阳即将毁灭，人类在地球表面建造出巨大的推进器，寻找新的家园...</p>
+                        <a href="movie-detail.html?id=1" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://picsum.photos/1200/500?random=2');">
+                    <div class="slide-content">
+                        <h2>满江红</h2>
+                        <p>南宋绍兴年间，岳飞死后四年，秦桧率兵与金国会谈...</p>
+                        <a href="movie-detail.html?id=2" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- 热门电影 -->
+        <section class="movie-section">
+            <h2>热门电影</h2>
+            <div class="movie-grid" id="hotMovies">
+                <!-- 电影卡片由JS动态生成 -->
+            </div>
+        </section>
+
+        <!-- 最新上映 -->
+        <section class="movie-section" id="new">
+            <h2>最新上映</h2>
+            <div class="movie-grid" id="newMovies">
+                <!-- 电影卡片由JS动态生成 -->
+            </div>
+        </section>
+
+        <!-- 新片速递 -->
+        <section class="movie-section new-releases" id="new-releases">
+            <div class="section-header">
+                <h2><i class="fas fa-film"></i> 新片速递</h2>
+                <a href="movie-list.html?sort=year_desc" class="view-more">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="releases-container">
+                <div class="featured-release" id="featuredRelease">
+                    <!-- 主推新片 -->
+                </div>
+                <div class="release-list" id="releaseList">
+                    <!-- 新片列表 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 排行榜 -->
+        <section class="movie-section top-rankings" id="top">
+            <div class="section-header">
+                <h2><i class="fas fa-trophy"></i> 排行榜</h2>
+                <a href="movie-list.html?sort=rating_desc" class="view-more">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="rankings-tabs">
+                <button class="tab-btn active" data-tab="rating">高分榜</button>
+                <button class="tab-btn" data-tab="popular">热门榜</button>
+                <button class="tab-btn" data-tab="boxoffice">票房榜</button>
+            </div>
+            <div class="rankings-content">
+                <div class="ranking-tab active" id="ratingTab">
+                    <!-- 高分榜 -->
+                </div>
+                <div class="ranking-tab" id="popularTab">
+                    <!-- 热门榜 -->
+                </div>
+                <div class="ranking-tab" id="boxofficeTab">
+                    <!-- 票房榜 -->
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    
+
+    
+
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/movie.js"></script>
+</body>
+</html>

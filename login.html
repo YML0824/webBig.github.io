@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 我的电影</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>欢迎回来</h1>
+                <p>登录您的账户，探索更多电影</p>
+            </div>
+            
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">用户名或邮箱</label>
+                    <input type="text" id="username" placeholder="请输入用户名或邮箱" required>
+                    <div class="error-message">用户名不能为空</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" placeholder="请输入密码" required>
+                    <div class="error-message">密码不能为空</div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>记住我</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="auth-btn">登录</button>
+                
+                
+            </form>
+            
+            <div class="auth-footer">
+                <p>还没有账户？ <a href="register.html">立即注册</a></p>
+                <div class="back-home">
+                    <a href="index.html"><i class="fas fa-home"></i> 返回首页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>

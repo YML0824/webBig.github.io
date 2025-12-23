@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影详情 - 我的电影</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">我的电影</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="movie-list.html">电影库</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-container">
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="搜索电影..." autocomplete="off">
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </div>
+                
+                <a href="index.html#new-releases">新片速递</a>
+                <a href="index.html#top">排行榜</a>
+                <div class="auth-buttons">
+                    <!-- 用户管理JS会自动填充 -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="movie-detail-page">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">首页</a> &gt; <a href="movie-list.html">电影库</a> &gt; <span id="breadcrumb-title">电影详情</span>
+            </nav>
+
+            <section class="detail-top">
+                <div class="poster">
+                    <img id="detailPoster" src="https://picsum.photos/300/450?random=1" alt="海报" />
+                </div>
+                <div class="detail-info">
+                    <h1 id="detailTitle">电影标题</h1>
+                    <div class="meta" id="detailMeta">2023 · 120分钟 · 中国 · 汉语普通话</div>
+
+                    <div class="rating">
+                        <div class="stars" id="detailStars">★★★★★</div>
+                        <div class="score" id="detailScore">-- / 10</div>
+                    </div>
+
+                    <div class="genres" id="detailGenres"></div>
+
+                    <p class="synopsis" id="detailOverview">剧情简介将在此处显示。</p>
+
+                    <div class="detail-actions">
+                        <button id="playBtn" class="primary-btn"><i class="fas fa-play"></i> 播放</button>
+                        <button id="favBtn" class="secondary-btn"><i class="far fa-heart"></i> 收藏</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="reviews-section">
+                <h3>影评</h3>
+                <div id="reviews">暂无影评，快来写下你的观后感！</div>
+            </section>
+
+            <section class="related-section">
+                <h3>相关推荐</h3>
+                <div class="movie-grid" id="relatedMovies">
+                    <!-- 相关电影将由 JS 填充 -->
+                </div>
+            </section>
+        </div>
+
+        <!-- 加载提示 -->
+        <div id="loading" style="text-align: center; padding: 3rem;">
+            <i class="fas fa-spinner fa-spin fa-3x" style="color: #ff4757;"></i>
+            <p style="margin-top: 1rem;">正在加载电影信息...</p>
+        </div>
+
+        <!-- 错误提示 -->
+        <div id="errorMessage" class="no-results" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>电影信息加载失败</h3>
+            <p>请稍后重试或返回<a href="movie-list.html">电影库</a></p>
+        </div>
+    </main>
+
+    <!-- 视频播放器模态框 -->
+    <div id="videoPlayerModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 id="videoTitle">正在播放</h3>
+                <button id="closeVideoBtn" class="close-video-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-container">
+                <video id="videoPlayer" controls autoplay>
+                    <source id="videoSource" src="" type="video/mp4">
+                    您的浏览器不支持 video 标签。
+                </video>
+            </div>
+            <div class="video-controls">
+                <div class="video-info">
+                    <span id="currentTime">00:00</span>
+                    <span class="time-separator">/</span>
+                    <span id="duration">00:00</span>
+                </div>
+                <div class="video-buttons">
+                    <button id="fullscreenBtn" class="control-btn" title="全屏">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/movie.js"></script>
+</body>
+</html>
